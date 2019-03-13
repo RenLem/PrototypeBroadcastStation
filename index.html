@@ -7,16 +7,17 @@
     <meta hppt-equiv="X-UA-Compatibile" content="ie=edge">
 
     <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-    
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Jquery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            
 
     <title>Prototype broadcast</title>
 
@@ -50,19 +51,18 @@
 
   <body>
     <!--Navigation bar-->
-    <nav class="nav-wraper">
-      <!-- <div class="container"> -->
+    <nav>
+      <div class="nav-wrapper">
         <a href="#" class="sidenav-trigger show-on-large" data-target="menu-selection">
           <i class="material-icons">menu</i>
         </a>
         <a href="#" class="brand-logo">Smoćnica</a>
-      <!-- </div> -->
+      </div>
     </nav>
 
     <ul class="sidenav" id="menu-selection">
       <li id="id_euronews" onclick="loadBroadcast(this.id)"><a href="#" onclick="loadEuronews()">Euronews</a></li>
       <li id="id_spacex" onclick="loadBroadcast(this.id)"><a href="#" onclick="loadSpaceX()">SpaceX</a></li>
-      <li><a href="#">Al Jazeera</a></li>
     </ul>
 
     <!-- Content of page -->
@@ -78,52 +78,49 @@
 
 
 
-    <!--Jquery-->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+
     <!--Function of sidenav-->
     <script>
-      $(document).ready(function() {
-        $('.sidenav').sidenav();
+    $(document).ready(function() {
+      $('.sidenav').sidenav({
+        draggable: true
       });
+
+      $('.sidenav').sidenav('open');
+    });
+
+    // Js not working
+    /*document.addEventListener('DOMContentLoaded', function () {
+      var elem = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elem, options);
+
+      var instance = M.Sidenav.getInstance(elem);
+      instance.open();
+    });*/
+
     </script>
+
     <!--Add a video iFrame by Js-->
     <script>
     //iFrames - programs source
     var source;
-    const EURONEWS = 'src="https://www.youtube.com/embed/0eRUU97cTf0"'
-    const SPACEX = 'src="https://www.youtube.com/embed/u-SAdjoFVHk"'
-    //var euronews = '<iframe width="1024" height="600" src="https://www.youtube.com/embed/0eRUU97cTf0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-    //var spacex = '<iframe width="1024" height="600" src="https://www.youtube.com/embed/u-SAdjoFVHk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-
+    const EURONEWS = 'src="https://www.youtube.com/embed/5avbHxRppxo"'
+    const SPACEX = 'src="https://www.youtube.com/embed/2ZL0tbOZYhE"'
 
     function loadBroadcast(id) {
       switch (id) {
         case "id_euronews":
-          source = EURONEWS;
-          break;
+        source = EURONEWS;
+        break;
         case "id_spacex":
-          source = SPACEX;
-          break;
+        source = SPACEX;
+        break;
       }
       var broadcastStation = '<iframe width="100%" height="480" '
                               + source +
                               ' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
       document.getElementById('video_placeholder').innerHTML = broadcastStation;
     }
-
-    // UNUSED JavaScript
-    /*function loadEuronews(){
-      var obVideo = {"video":{ "value": euronews}}
-      document.getElementById('video_placeholder').innerHTML = obVideo.video.value;
-
-    }
-
-    function loadSpaceX(){
-      var obVideo = {"video":{ "value": spacex}}
-      document.getElementById('video_placeholder').innerHTML = obVideo.video.value;
-    }*/
 
     </script>
   </body>
