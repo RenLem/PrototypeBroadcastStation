@@ -1,69 +1,68 @@
 <!DOCTYPE html>
 <html lang="hr">
-  <head>
-    <meta charset="utf-8">
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
-    <meta hppt-equiv="X-UA-Compatibile" content="ie=edge">
+<head>
+  <meta charset="utf-8">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
-    <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-    
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            
+  <!--Jquery--><!--Import jQuery before materialize.js-->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-    <title>Prototype broadcast</title>
 
-    <!--Style-->
-    <style media="screen">
-      body {
-        background: #181818;
-      }
-      nav {
-        position: fixed;
-        background: #121212;
-      }
-      .sidenav {
-        background: #161616;
-      }
-      .sidenav > li > a {
-        color: #DDDDDD;
-      }
-      #container_id {
-        padding-top: 70px;
-        align-content: center;
-      }
-      #row_video {
-        align-items: stretch;
-      }
-      #video_placeholder {
+  <title>Prototype broadcast</title>
 
-      }
-    </style>
-  </head>
+  <!--Style-->
+  <style media="screen">
+  body {
+    background: #181818;
+  }
+  nav {
+    position: fixed;
+    background: #121212;
+  }
+  .side-nav {
+    background: #161616;
+  }
+  .side-nav > li > a {
+    color: #DDDDDD;
+  }
+  #container_id {
+    padding-top: 70px;
+    align-content: center;
+  }
+  #row_video {
+    align-items: stretch;
+  }
+  #video_placeholder {
+
+  }
+  </style>
+</head>
 
   <body>
     <!--Navigation bar-->
-    <nav class="nav-wraper">
-      <!-- <div class="container"> -->
-        <a href="#" class="sidenav-trigger show-on-large" data-target="menu-selection">
-          <i class="material-icons">menu</i>
-        </a>
-        <a href="#" class="brand-logo">Smoćnica</a>
-      <!-- </div> -->
-    </nav>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="button-collapse show-on-large" data-activates="slide-out">
+          <i class="material-icons">menu</i></a>
+          <a href="#" class="brand-logo">Smoćnica</a>
+        </div>
+      </nav>
 
-    <ul class="sidenav" id="menu-selection">
-      <li id="id_euronews" onclick="loadBroadcast(this.id)"><a href="#" onclick="loadEuronews()">Euronews</a></li>
-      <li id="id_spacex" onclick="loadBroadcast(this.id)"><a href="#" onclick="loadSpaceX()">SpaceX</a></li>
-      <li><a href="#">Al Jazeera</a></li>
-    </ul>
+      <ul class="side-nav" id="slide-out">
+        <li id="id_euronews" onclick="loadBroadcast(this.id)"><a href="#" onclick="loadEuronews()">Euronews</a></li>
+        <li id="id_spacex" onclick="loadBroadcast(this.id)"><a href="#" onclick="loadSpaceX()">SpaceX</a></li>
+      </ul>
+
 
     <!-- Content of page -->
     <div class="container" id="container_id">
@@ -78,22 +77,18 @@
 
 
 
-    <!--Jquery-->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
     <!--Function of sidenav-->
     <script>
-      $(document).ready(function() {
-        $('.sidenav').sidenav();
-      });
+    $(document).ready(function() {
+      $('.button-collapse').sideNav();
+    });
     </script>
     <!--Add a video iFrame by Js-->
     <script>
     //iFrames - programs source
     var source;
-    const EURONEWS = 'src="https://www.youtube.com/embed/0eRUU97cTf0"'
-    const SPACEX = 'src="https://www.youtube.com/embed/u-SAdjoFVHk"'
+    const EURONEWS = 'src="https://www.youtube.com/embed/5avbHxRppxo"'
+    const SPACEX = 'src="https://www.youtube.com/embed/21X5lGlDOfg"'
     //var euronews = '<iframe width="1024" height="600" src="https://www.youtube.com/embed/0eRUU97cTf0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
     //var spacex = '<iframe width="1024" height="600" src="https://www.youtube.com/embed/u-SAdjoFVHk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 
